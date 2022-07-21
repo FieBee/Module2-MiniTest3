@@ -13,12 +13,13 @@ import static controller.MaterialManager.*;
 
 
 
+
 public class Client {
 
     private static final LinkedList<Material> arr = MaterialManager.arr;
 
     public static void main(String[] args) {
-//        MaterialManager phuong = new MaterialManager();
+
 
         extracted(arr);
     }
@@ -84,7 +85,7 @@ public class Client {
 
                 case 2: setProductId(arr);break;
                 case 3: deleteMaterial();break;
-                case 4: MaterialManager.displayArrays(arr);break;
+                case 4: displayArrays(arr);break;
                 case 5: exchangeRateDifference(arr);break;
                 default:
                     System.out.println("Tính năng chưa phát triển...!");
@@ -116,6 +117,7 @@ public class Client {
 
         Meat meat = new Meat(id, name, localDate, cost, weight);
         System.out.println(meat);
+        addMaterial(meat);
     }
 
     public static void addCrispyFlour(){
@@ -156,6 +158,7 @@ public class Client {
         System.out.println("Sửa thành công: "+ material);
 
     }
+
 
     public static void deleteMaterial(){
         Scanner input = new Scanner(System.in);

@@ -1,16 +1,16 @@
 package controller;
 import model.Material;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Scanner;
+import view.Client;
 
 public class MaterialManager {
 
     public static LinkedList<Material> arr = new LinkedList<>();
 
 
-    public void addMaterial(Material material){
+    public static void addMaterial(Material material){
         arr.add(material);
     }
 
@@ -38,9 +38,11 @@ public class MaterialManager {
 
 
     public static void exchangeRateDifference(LinkedList<Material> arr){
+
         for (Material element: arr
              )
-            System.out.println("  Giá ban đầu: " + element.getAmount() + "    Sau chiết khấu: " + element.getRealMoney());
+            System.out.println("  "+arr.indexOf(element) +"   Sản phẩm: "+ element.getName()+ "   Giá ban đầu: " + element.getAmount() + "    Sau chiết khấu: " + element.getRealMoney());
+
     }
 
 

@@ -1,6 +1,7 @@
 package model;
-
 import java.time.LocalDate;
+
+
 
 public class CrispyFlour extends Material {
     private double quantity;
