@@ -9,19 +9,17 @@ import java.time.LocalDate;
 import java.util.LinkedList;
 import java.util.Scanner;
 
-import static controller.MaterialManager.*;
-
 
 
 
 public class Client {
 
+
     private static final LinkedList<Material> arr = MaterialManager.arr;
 
     public static void main(String[] args) {
-
-
-        extracted(arr);
+        MaterialManager hoangHa = new MaterialManager();
+        extracted(arr, hoangHa);
     }
 
     static {
@@ -49,7 +47,14 @@ public class Client {
 
     }
 
-    private static void extracted(LinkedList<Material> arr) {
+
+    private static void show(MaterialManager materialManager){
+        materialManager.displayArrays(arr);
+    }
+
+
+
+    private static void extracted(LinkedList<Material> arr, MaterialManager materialManager) {
         Scanner input = new Scanner(System.in);
         int selectOption;
         do {
@@ -75,18 +80,18 @@ public class Client {
                     int option = input.nextInt();
 
                     switch (option){
-                        case 1: addMeat(); break;
-                        case 2: addCrispyFlour(); break;
+                        case 1: addMeat(materialManager); break;
+                        case 2: addCrispyFlour(materialManager); break;
                         default:
                             System.out.println("Không hợp lệ!!!");
-                            extracted(arr);
+                            extracted(arr,materialManager);
                     }
                     break;
 
                 case 2: setProductId(arr);break;
-                case 3: deleteMaterial();break;
-                case 4: displayArrays(arr);break;
-                case 5: exchangeRateDifference(arr);break;
+                case 3: deleteMaterial(materialManager);break;
+                case 4: show(materialManager);break;
+                case 5: materialManager.exchangeRateDifference(arr);break;
                 default:
                     System.out.println("Tính năng chưa phát triển...!");
             }
@@ -94,7 +99,7 @@ public class Client {
     }
 
 
-    public static void addMeat(){
+    public static void addMeat(MaterialManager materialManager ){
         Scanner input = new Scanner(System.in);
         System.out.println("Nhập id cho sản phẩm Meat:");
         String id = input.nextLine();
@@ -117,10 +122,10 @@ public class Client {
 
         Meat meat = new Meat(id, name, localDate, cost, weight);
         System.out.println(meat);
-        addMaterial(meat);
+        materialManager.addMaterial(meat);
     }
 
-    public static void addCrispyFlour(){
+    public static void addCrispyFlour(MaterialManager materialManager){
         Scanner input = new Scanner(System.in);
         System.out.println("Nhập id cho sản phẩm CrispyFlour:");
         String id = input.nextLine();
@@ -141,11 +146,12 @@ public class Client {
 
         CrispyFlour crispyFlour = new CrispyFlour(id, name, localDate, cost, quantity);
         System.out.println(crispyFlour);
+        materialManager.addMaterial(crispyFlour);
     }
 
     public static void setProductId(LinkedList<Material> arr){
         Scanner input = new Scanner(System.in);
-        int id = checkId(arr, "Nhập ID sản phẩm muốn sửa: ");
+        int id = new MaterialManager().checkId(arr, "Nhập ID sản phẩm muốn sửa: ");
 
         Material material = arr.get(id);
 
@@ -160,7 +166,7 @@ public class Client {
     }
 
 
-    public static void deleteMaterial(){
+    public static void deleteMaterial(MaterialManager materialManager){
         Scanner input = new Scanner(System.in);
 
         System.out.println("Nhập ID nguyên liệu cần xóa: ");
@@ -169,7 +175,7 @@ public class Client {
         System.out.println("Đã xóa thành công: " +arr.get(index));
         System.out.println();
 
-        deleteElement(arr, index);
+        materialManager.deleteElement(arr, index);
     }
 }
 

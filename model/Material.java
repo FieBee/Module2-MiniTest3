@@ -8,8 +8,7 @@ public abstract class Material implements Discount{
     private LocalDate manufacturing = getExpiryDate();
     private int cost;
 
-    public Material() {
-    }
+    public Material() {}
 
     public Material(String id, String name, LocalDate manufacturing, int cost) {
         this.id = id;
