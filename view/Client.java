@@ -5,7 +5,6 @@ import model.CrispyFlour;
 import model.Material;
 import model.Meat;
 
-import java.time.LocalDate;
 import java.util.LinkedList;
 import java.util.Scanner;
 
@@ -15,7 +14,7 @@ import java.util.Scanner;
 public class Client {
 
 
-    private static final LinkedList<Material> arr = MaterialManager.arr;
+    private static LinkedList<Material> arr = MaterialManager.arr;
 
     public static void main(String[] args) {
         MaterialManager hoangHa = new MaterialManager();
@@ -23,16 +22,16 @@ public class Client {
     }
 
     static {
-        Meat meat1 = new Meat("0", "Thịt loại 1", LocalDate.now().plusDays(2), 100, 3);
-        Meat meat2 = new Meat("1", "Thịt loại 2", LocalDate.now().plusDays(3), 100, 3);
-        Meat meat3 = new Meat("2", "Thịt loại 3", LocalDate.now().plusDays(4), 100,3);
-        Meat meat4 = new Meat("3", "Thịt loại 4", LocalDate.now().plusDays(6), 100, 3);
-        Meat meat5 = new Meat("4", "Thịt loại 5", LocalDate.now().plusDays(7), 100, 3);
-        CrispyFlour crispyFlour1 = new CrispyFlour("5", "Bột mì loại 1", LocalDate.now().plusDays(50), 140, 7);
-        CrispyFlour crispyFlour2 = new CrispyFlour("6", "Bột mì loại 2", LocalDate.now().plusDays(100), 140, 4);
-        CrispyFlour crispyFlour3 = new CrispyFlour("7", "Bột mì loại 3", LocalDate.now().plusDays(150), 140, 2);
-        CrispyFlour crispyFlour4 = new CrispyFlour("8", "Bột mì loại 4", LocalDate.now().plusDays(200), 140, 3);
-        CrispyFlour crispyFlour5 = new CrispyFlour("9", "Bột mì loại 5", LocalDate.now().plusDays(300), 1000, 10);
+        Meat meat1 = new Meat("0", "Thịt loại 1", "2022-07-22", 100, 3);
+        Meat meat2 = new Meat("1", "Thịt loại 2", "2022-07-22", 100, 3);
+        Meat meat3 = new Meat("2", "Thịt loại 3","2022-07-22", 100,3);
+        Meat meat4 = new Meat("3", "Thịt loại 4", "2022-07-22", 100, 3);
+        Meat meat5 = new Meat("4", "Thịt loại 5", "2022-07-22", 100, 3);
+        CrispyFlour crispyFlour1 = new CrispyFlour("5", "Bột mì loại 1", "2022-07-22", 140, 7);
+        CrispyFlour crispyFlour2 = new CrispyFlour("6", "Bột mì loại 2", "2022-07-22", 140, 4);
+        CrispyFlour crispyFlour3 = new CrispyFlour("7", "Bột mì loại 3", "2022-07-22", 140, 2);
+        CrispyFlour crispyFlour4 = new CrispyFlour("8", "Bột mì loại 4", "2022-07-22", 140, 3);
+        CrispyFlour crispyFlour5 = new CrispyFlour("9", "Bột mì loại 5", "2022-07-22", 1000, 10);
 
         arr.add(meat1);
         arr.add(meat2);
@@ -107,10 +106,8 @@ public class Client {
         System.out.println("Nhập tên sản phẩm:");
         String name = input.nextLine();
 
-        System.out.println("Nhập hạn sử dụng còn lại (ngày):");
-        int hsd = input.nextInt();
-
-        LocalDate localDate = LocalDate.now().plusDays(hsd);
+        System.out.println("Nhập ngày sản xuất:");
+        String manufacturing = input.nextLine();
 
         System.out.println("Nhập giá sản phẩm:");
         int cost = input.nextInt();
@@ -120,7 +117,7 @@ public class Client {
         System.out.println("Thêm thành công ");
 
 
-        Meat meat = new Meat(id, name, localDate, cost, weight);
+        Meat meat = new Meat(id, name, manufacturing, cost, weight);
         System.out.println(meat);
         materialManager.addMaterial(meat);
     }
@@ -133,9 +130,8 @@ public class Client {
         System.out.println("Nhập tên sản phẩm:");
         String name = input.nextLine();
 
-        System.out.println("Nhập hạn sử dụng còn lại (ngày):");
-        int hsd = input.nextInt();
-        LocalDate localDate = LocalDate.now().plusDays(hsd);
+        System.out.println("Nhập ngày sản xuất:");
+        String manufacturing = input.nextLine();
 
         System.out.println("Nhập giá sản phẩm:");
         int cost = input.nextInt();
@@ -144,7 +140,7 @@ public class Client {
         int quantity = input.nextInt();
         System.out.println("Thêm thành công ");
 
-        CrispyFlour crispyFlour = new CrispyFlour(id, name, localDate, cost, quantity);
+        CrispyFlour crispyFlour = new CrispyFlour(id, name, manufacturing, cost, quantity);
         System.out.println(crispyFlour);
         materialManager.addMaterial(crispyFlour);
     }

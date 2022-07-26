@@ -11,8 +11,8 @@ public class Meat extends Material{
 
 
 
-    public Meat(String id, String name, LocalDate expiryDate, int cost, double weight) {
-        super(id, name, expiryDate, cost);
+    public Meat(String id, String name, String manufacturing, int cost, double weight) {
+        super(id, name, manufacturing, cost);
         this.weight = weight;
     }
 
@@ -52,7 +52,7 @@ public class Meat extends Material{
         return "   Meat {" +
                 "id ='" + super.getId() + '\'' +
                 ", name = '" + super.getName() + '\'' +
-                ", manufacturing =" + super.getManufacturing() +
+                ", manufacturing = " + super.getManufacturing() +
                 ", cost =" + super.getCost() +
                 ", weight =" + weight +
                 '}';

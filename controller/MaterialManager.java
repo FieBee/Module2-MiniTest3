@@ -9,7 +9,7 @@ public class MaterialManager {
     public MaterialManager() {
     }
 
-    public static final LinkedList<Material> arr = new LinkedList<>();
+    public static LinkedList<Material> arr = new LinkedList<>();
 
 
     public void addMaterial(Material material){

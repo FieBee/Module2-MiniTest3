@@ -9,8 +9,8 @@ public class CrispyFlour extends Material {
     public CrispyFlour() {
     }
 
-    public CrispyFlour(String id, String name, LocalDate localDate, int cost, double quantity) {
-        super(id, name, localDate ,cost);
+    public CrispyFlour(String id, String name, String manufacturing, int cost, double quantity) {
+        super(id, name, manufacturing ,cost);
         this.quantity = quantity;
     }
 
@@ -38,11 +38,13 @@ public class CrispyFlour extends Material {
         return "   CrispyFlour {" +
                 "id ='" + super.getId() + '\'' +
                 ", name = '" + super.getName() + '\'' +
-                ", manufacturing =" + super.getManufacturing() +
+                ", manufacturing = " + super.getManufacturing() +
                 ", cost =" + super.getCost() +
                 ", quantity =" + quantity +
                 '}';
     }
+
+
 
 
     @Override

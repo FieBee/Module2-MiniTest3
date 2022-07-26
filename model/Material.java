@@ -5,15 +5,15 @@ import java.time.LocalDate;
 public abstract class Material implements Discount{
     private String id;
     private String name;
-    private LocalDate manufacturing = getExpiryDate();
+    private LocalDate manufacturing;
     private int cost;
 
     public Material() {}
 
-    public Material(String id, String name, LocalDate manufacturing, int cost) {
+    public Material(String id, String name, String manufacturing, int cost) {
         this.id = id;
         this.name = name;
-        this.manufacturing = manufacturing;
+        this.manufacturing = LocalDate.parse(manufacturing);
         this.cost = cost;
     }
 
@@ -61,7 +61,7 @@ public abstract class Material implements Discount{
         return "Material{" +
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
-                ", manufacturing=" + manufacturing +
+                ", manufacturing= " + manufacturing +
                 ", cost=" + cost +
                 '}';
     }
